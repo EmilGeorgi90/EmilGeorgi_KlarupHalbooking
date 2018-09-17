@@ -16,12 +16,12 @@ namespace KlarupHalbooking.Client
             T repsonse = default(T);
             using (Entities.HallBookingContext context = new Entities.HallBookingContext())
             {
-                switch (typeof(T))
+                if (typeof(Entities.IBooking) == typeof(T))
                 {
-                    default:
-                        throw new NotSupportedException("type not supported");
+                    repsonse = typeof(KlarupHalbooking.Entities.HallBookingContext).GetProperty(typeof(T).Name) is System.Reflection.PropertyInfo info ? (T)info.GetValue(context) : default(T);
                 }
             }
+            return repsonse;
         }
     }
 }
