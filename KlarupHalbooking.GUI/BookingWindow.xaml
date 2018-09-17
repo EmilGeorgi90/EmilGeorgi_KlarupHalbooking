@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="KlarupHalbooking.GUI.BookingWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KlarupHalbooking.GUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Label Height="40" Width="200" Content="Dato for booking" VerticalAlignment="top" HorizontalAlignment="Left" Margin="10,10"></Label>
+        <DatePicker Name="dpDateTime" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="220,10"></DatePicker>
+        <Label Height="40" Width="200" Content="Tidspunkt for booking" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 70"></Label>
+        <ContentControl Name="TimePicker"></ContentControl>
+    </Grid>
+</UserControl>
