@@ -52,6 +52,7 @@
     <Compile Include="Admin.cs" />
     <Compile Include="HallBookingContext.cs" />
     <Compile Include="HallBooking.cs" />
+    <Compile Include="IBooking.cs" />
     <Compile Include="Migrations\201809171148183_HallBooking.cs" />
     <Compile Include="Migrations\201809171148183_HallBooking.Designer.cs">
       <DependentUpon>201809171148183_HallBooking.cs</DependentUpon>

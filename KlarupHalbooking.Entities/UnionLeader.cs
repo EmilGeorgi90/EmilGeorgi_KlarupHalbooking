@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KlarupHalbooking.Entities
 {
-    public class UnionLeader
+    public class UnionLeader : IBooking
     {
         private int unionLeaderID;
         private string address;

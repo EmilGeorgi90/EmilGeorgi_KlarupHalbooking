@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KlarupHalbooking.Entities
 {
-    public class Activity
+    public class Activity : IBooking
     {
         private int activityID;
         private string activityName;

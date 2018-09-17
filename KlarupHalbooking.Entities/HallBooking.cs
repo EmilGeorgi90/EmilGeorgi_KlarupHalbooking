@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KlarupHalbooking.Entities
 {
-    public class HallBooking
+    public class HallBooking : IBooking
     {
         private int hallBookingID;
         private DateTime hallBookingTime;

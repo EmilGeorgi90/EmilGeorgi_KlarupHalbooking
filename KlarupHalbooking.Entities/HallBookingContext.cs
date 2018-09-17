@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KlarupHalbooking.Entities
 {
-    class HallBookingContext : DbContext
+    public class HallBookingContext : DbContext
     {
         public DbSet<UserData> UserData{ get; set; }
         public DbSet<Admin> Admins { get; set; }
