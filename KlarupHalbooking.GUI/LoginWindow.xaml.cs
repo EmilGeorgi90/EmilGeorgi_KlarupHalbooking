@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,23 +16,13 @@ using System.Windows.Shapes;
 namespace KlarupHalbooking.GUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : UserControl
     {
-        bool isLoggedIn = false;
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
-            if (!isLoggedIn)
-            {
-                Content = new LoginWindow();
-            }
-        }
-
-        private void ContentControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
