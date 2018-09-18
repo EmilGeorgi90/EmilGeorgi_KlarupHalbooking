@@ -17,7 +17,7 @@ namespace KlarupHalbooking.Client
         public List<HallBooking> GetData(params IBooking[] bookings)
         {
             IQueryable<HallBooking> repsonse;
-            repsonse = from book in context.HallBookings join act in context.Activities on book.Activity.ActivityID equals act.ActivityID join uni in context.Unions on book.Union.UnionID equals uni.UnionID join user in context.UserData on uni.UserData.UserDataID equals user.UserDataID select book;
+            repsonse = from book in context.HallBookings join act in context.Activities on book.Activity equals act join uni in context.Unions on book.Union equals uni join user in context.UserData on uni.UserData equals user select book;
 
             return repsonse.ToList();
         }
@@ -67,7 +67,7 @@ namespace KlarupHalbooking.Client
             bool isAdmin = context.Admins.Any(a => a.UserData.UserDataID == userdata.UserDataID);
             return (result, isAdmin, user);
         }
-        public int remove(HallBooking booking)
+        public int Remove(HallBooking booking)
         {
             context.HallBookings.Remove(booking);
             return context.SaveChanges();

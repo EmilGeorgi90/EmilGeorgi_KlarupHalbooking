@@ -71,7 +71,7 @@ namespace KlarupHalbooking.GUI
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            int result = dataClient.remove(dgBookings.SelectedItem as Entities.HallBooking);
+            int result = dataClient.Remove(dgBookings.SelectedItem as Entities.HallBooking);
             if(result >= 1)
             {
                 MessageBox.Show("du har nu fjernet den fra listen");
