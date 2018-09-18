@@ -13,6 +13,10 @@ namespace KlarupHalbooking.Entities
         private UserData userData;
         private int adminID;
 
+        public Admin()
+        {
+        }
+
         public Admin(UserData userData, string fullname, int address)
         {
             UserData = userData;

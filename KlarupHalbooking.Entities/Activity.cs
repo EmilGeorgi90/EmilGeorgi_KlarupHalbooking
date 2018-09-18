@@ -12,7 +12,9 @@ namespace KlarupHalbooking.Entities
         private string activityName;
         private double spaceNeeded;
 
-
+        public Activity()
+        {
+        }
 
         public Activity(string activityName, double spaceNeeded)
         {
@@ -42,11 +44,11 @@ namespace KlarupHalbooking.Entities
             get { return spaceNeeded; }
             set
             {
-                if(value > 1)
+                if(value / 100 > 1)
                 {
                     throw new ArgumentException("kan ikke være større end 1");
                 }
-                spaceNeeded = value;
+                spaceNeeded = value / 100;
             }
         }
 

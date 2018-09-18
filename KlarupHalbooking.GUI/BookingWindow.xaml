@@ -6,12 +6,14 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:KlarupHalbooking.GUI"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <Grid>
         <Label Height="40" Width="200" Content="Dato for booking" VerticalAlignment="top" HorizontalAlignment="Left" Margin="10,10"></Label>
         <xctk:DateTimePicker x:Name="dtpBookingDate" Format="Custom" FormatString="dd'/'MM-yyyy HH:mm " Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="230,10"/>
-        <Label Height="40" Width="200" Content="aktivite for booking" VerticalAlignment="top" HorizontalAlignment="Left" Margin="10,70"></Label>
-        <TextBox x:Name="tbxActivity" Height="40" Width="200" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="230, 70"></TextBox>
-        <Button Height="40" Width="200" Content="tilføj booking" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="230,130" Click="Button_Click"/>
+        <Label Height="40" Width="200" Content="slut tidpunkt for booking" VerticalAlignment="top" HorizontalAlignment="Left" Margin="10,70"></Label>
+        <xctk:DateTimePicker x:Name="dtpBookingEndDate" Format="Custom" FormatString="dd'/'MM-yyyy HH:mm " Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="230,70"/>
+        <Label Height="40" Width="200" Content="aktivite for booking" VerticalAlignment="top" HorizontalAlignment="Left" Margin="10,130"></Label>
+        <ComboBox x:Name="cmbActivity" Height="40" Width="200" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="230, 130" Loaded="cmbActivity_Loaded"></ComboBox>
+        <Button Height="40" Width="200" Content="tilføj booking" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="230,200,0,0" Click="Button_Click"/>
     </Grid>
 </UserControl>

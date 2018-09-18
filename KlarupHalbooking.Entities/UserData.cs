@@ -13,6 +13,10 @@ namespace KlarupHalbooking.Entities
         private string password;
         private string phonenumber;
 
+        public UserData()
+        {
+        }
+
         public UserData(string username, string password, string phonenumber)
         {
             Username = username;

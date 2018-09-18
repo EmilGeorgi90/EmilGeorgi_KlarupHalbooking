@@ -27,13 +27,19 @@ namespace KlarupHalbooking.GUI
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Client.DataClient<Entities.UserData> client = new Client.DataClient<Entities.UserData>();
-            if (client.Login(new Entities.UserData(tbxUsernameInput.Text, tbxPasswordInput.Password, "00000000")))
+            Client.DataClient client = new Client.DataClient();
+            (bool isUser, Entities.UserData user) = client.Login(new Entities.UserData(tbxUsernameInput.Text, tbxPasswordInput.Password, "00000000"));
+            if (isUser)
             {
-                MainWindow mainWindow = new MainWindow(new Entities.UserData(tbxUsernameInput.Text, tbxPasswordInput.Password, "00000000"))
+                MainWindow mainWindow = new MainWindow();
+                foreach (Window window in Application.Current.Windows)
                 {
-                    isLoggedIn = true
-                };
+                    if (window.GetType() == typeof(MainWindow))
+                    {
+                        (window as MainWindow).userData = user;
+                        (window as MainWindow).isLoggedIn = true;
+                    }
+                }
                 mainWindow.Show();
                 Application.Current.MainWindow.Close();
             }

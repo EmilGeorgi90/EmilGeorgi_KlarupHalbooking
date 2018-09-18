@@ -13,6 +13,10 @@ namespace KlarupHalbooking.Entities
         private UserData userData;
         private UnionLeader unionLeader;
 
+        public Union()
+        {
+        }
+
         public Union(UserData userData, string unionName)
         {
             UserData = userData;

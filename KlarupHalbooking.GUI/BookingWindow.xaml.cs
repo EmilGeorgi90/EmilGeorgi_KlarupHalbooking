@@ -20,15 +20,48 @@ namespace KlarupHalbooking.GUI
     /// </summary>
     public partial class BookingWindow : UserControl
     {
+        Client.DataClient dataClient = null;
         public BookingWindow()
         {
             InitializeComponent();
-            userData.
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Client.DataClient<Entities.HallBooking> dataClient = new Client.DataClient<Entities.HallBooking>();
-            dataClient.AddData(dtpBookingDate.Value ?? DateTime.Now, tbxActivity.Text, );
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(MainWindow))
+                {
+                    if(dataClient.AddData(dtpBookingDate.Value ?? DateTime.Now, dtpBookingEndDate.Value ?? DateTime.Now,(string)cmbActivity.SelectedItem, (window as MainWindow).userData))
+                    {
+                        MessageBox.Show("du har nu tilføjet en booking, den bliver nu kigget på af administratorerne");
+                    }
+                }
+            }
+        }
+
+        private void cmbActivity_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+            dataClient = new Client.DataClient();
+            List<string> activityNames = new List<string>();
+            List<Entities.IBooking> activities = dataClient.GetData();
+            foreach (Entities.Activity activity in activities)
+            {
+                activityNames.Add(activity.ActivityName);
+            }
+            cmbActivity.ItemsSource = activityNames;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "contact your supporter");
+                Application.Current.Shutdown();
+            }
         }
     }
 }

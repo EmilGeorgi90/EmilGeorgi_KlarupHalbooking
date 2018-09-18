@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KlarupHalbooking.Entities
 {
-    internal interface IBooking
+    public interface IBooking
     {
     }
 }

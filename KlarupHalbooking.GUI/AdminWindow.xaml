@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="KlarupHalbooking.GUI.AdminWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KlarupHalbooking.GUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid Loaded="Grid_Loaded">
+        <DataGrid x:Name="dgBookings" HorizontalAlignment="Left" Height="279" Margin="10,10,0,0" VerticalAlignment="Top" Width="780"/>
+        <Button Content="fjern" HorizontalAlignment="Left" Margin="40,330,0,0" VerticalAlignment="Top" Width="127" Height="60"/>
+        <Button Content="resever" HorizontalAlignment="Left" Margin="640,330,0,0" VerticalAlignment="Top" Width="127" Height="60"/>
+
+    </Grid>
+</UserControl>

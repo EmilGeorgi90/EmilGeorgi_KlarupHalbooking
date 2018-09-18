@@ -61,6 +61,14 @@
     <Compile Include="Migrations\201809180818422_HallBooking1.Designer.cs">
       <DependentUpon>201809180818422_HallBooking1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809180940534_HallBooking2.cs" />
+    <Compile Include="Migrations\201809180940534_HallBooking2.Designer.cs">
+      <DependentUpon>201809180940534_HallBooking2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809181008517_HallBooking3.cs" />
+    <Compile Include="Migrations\201809181008517_HallBooking3.Designer.cs">
+      <DependentUpon>201809181008517_HallBooking3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Union.cs" />
     <Compile Include="UnionLeader.cs" />
@@ -77,6 +85,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809180818422_HallBooking1.resx">
       <DependentUpon>201809180818422_HallBooking1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809180940534_HallBooking2.resx">
+      <DependentUpon>201809180940534_HallBooking2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809181008517_HallBooking3.resx">
+      <DependentUpon>201809181008517_HallBooking3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

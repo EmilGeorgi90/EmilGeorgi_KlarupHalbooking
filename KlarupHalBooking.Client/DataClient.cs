@@ -7,34 +7,29 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace KlarupHalbooking.Client
 {
-    public class DataClient<T>
+    public class DataClient
     {
-        public T GetData(params string[] parameters)
+        Entities.HallBookingContext context = new Entities.HallBookingContext();
+        public List<IBooking> GetData(params IBooking[] bookings)
         {
-            T repsonse = default(T);
-            using (Entities.HallBookingContext context = new Entities.HallBookingContext())
-            {
-                if (typeof(Entities.IBooking) == typeof(T))
-                {
-                    repsonse = typeof(KlarupHalbooking.Entities.HallBookingContext).GetProperty(typeof(T).Name) is System.Reflection.PropertyInfo info ? (T)info.GetValue(context) : default(T);
-                }
-            }
-            return repsonse;
+            IQueryable<IBooking> repsonse;
+            repsonse = from book in context.Activities select book;
+
+            return repsonse.ToList();
         }
-        public bool AddData(DateTime bookingDate, string activity, UserData)
+        public bool AddData(DateTime bookingDate, DateTime bookingEndDate,string activity, UserData userData)
         {
             try
             {
-                using (Entities.HallBookingContext context = new Entities.HallBookingContext())
-                {
-                    Entities.Activity activities = new Entities.Activity(context.Activities.FirstOrDefault(a => a.ActivityName == activity).ActivityID, activity, context.Activities.FirstOrDefault(a => a.ActivityName == activity).SpaceNeeded);
-                    Entities.Union union = new Entities.Union(userData, context.Unions.FirstOrDefault(u => u.UserData.Username == userData.Username));
-                    Entities.HallBooking booking = new Entities.HallBooking(activities);
-                    context.HallBookings.Add(booking);
-                }
+                Entities.Activity activities = new Entities.Activity(context.Activities.FirstOrDefault(a => a.ActivityName == activity).ActivityID, activity, context.Activities.FirstOrDefault(a => a.ActivityName == activity).SpaceNeeded);
+                Entities.Union union = new Entities.Union(userData, context.Unions.FirstOrDefault(u => u.UserData.Username == userData.Username).UnionName);
+                Entities.HallBooking booking = new Entities.HallBooking(activities, union, bookingDate, bookingEndDate, null, false);
+                context.HallBookings.Add(booking);
+                context.SaveChanges();
                 return true;
             }
             catch (Exception)
@@ -42,14 +37,13 @@ namespace KlarupHalbooking.Client
                 return false;
             }
         }
-        public bool Login(Entities.UserData userdata)
+        public (bool, UserData) Login(Entities.UserData userdata)
         {
             bool result = false;
-            using (Entities.HallBookingContext context = new Entities.HallBookingContext())
-            {
-                result = context.UserData.Any(u => u.Username == userdata.Username && u.Password == userdata.Password);
-            }
-            return result;
+            UserData user = null;
+            result = context.UserData.Any(u => u.Username == userdata.Username && u.Password == userdata.Password);
+            user = context.UserData.FirstOrDefault(u => u.Username == userdata.Username && u.Password == userdata.Password);
+            return (result, user);
         }
     }
 }

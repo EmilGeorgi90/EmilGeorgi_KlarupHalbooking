@@ -12,6 +12,10 @@ namespace KlarupHalbooking.Entities
         private string address;
         private string fullname;
 
+        public UnionLeader()
+        {
+        }
+
         public UnionLeader(string fullname, string address)
         {
             Fullname = fullname;
