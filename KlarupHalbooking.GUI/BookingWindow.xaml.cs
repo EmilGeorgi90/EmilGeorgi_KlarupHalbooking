@@ -31,7 +31,7 @@ namespace KlarupHalbooking.GUI
             {
                 if (window.GetType() == typeof(MainWindow))
                 {
-                    if(dataClient.AddData(dtpBookingDate.Value ?? DateTime.Now, dtpBookingEndDate.Value ?? DateTime.Now,(string)cmbActivity.SelectedItem, (window as MainWindow).userData))
+                    if (dataClient.AddData(dtpBookingDate.Value ?? DateTime.Now, dtpBookingEndDate.Value ?? DateTime.Now, (string)cmbActivity.SelectedItem, (window as MainWindow).userData))
                     {
                         MessageBox.Show("du har nu tilføjet en booking, den bliver nu kigget på af administratorerne");
                     }
@@ -48,14 +48,13 @@ namespace KlarupHalbooking.GUI
         {
             try
             {
-            dataClient = new Client.DataClient();
-            List<string> activityNames = new List<string>();
-            List<Entities.IBooking> activities = dataClient.GetData();
-            foreach (Entities.Activity activity in activities)
-            {
-                activityNames.Add(activity.ActivityName);
-            }
-            cmbActivity.ItemsSource = activityNames;
+                dataClient = new Client.DataClient();
+                List<string> activityNames = new List<string>();
+                foreach (Entities.Activity activity in dataClient.GetActivities())
+                {
+                    activityNames.Add(activity.ActivityName);
+                }
+                cmbActivity.ItemsSource = activityNames;
             }
             catch (Exception ex)
             {

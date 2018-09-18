@@ -22,6 +22,7 @@ namespace KlarupHalbooking.GUI
     public partial class MainWindow : Window
     {
         internal bool isLoggedIn = false;
+        internal bool isAdmin = false;
         internal Entities.UserData userData = null;
         public MainWindow()
         {
@@ -39,9 +40,13 @@ namespace KlarupHalbooking.GUI
             {
                 Content = new LoginWindow();
             }
-            else
+            else if(!isAdmin)
             {
                 Content = new BookingWindow();
+            }
+            else
+            {
+                Content = new AdminWindow();
             }
         }
     }

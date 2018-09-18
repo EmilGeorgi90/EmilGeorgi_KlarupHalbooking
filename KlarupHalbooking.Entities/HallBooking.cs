@@ -12,41 +12,10 @@ namespace KlarupHalbooking.Entities
         private DateTime hallBookingTime;
         private DateTime hallBookingEndTime;
         private Admin admin;
-
-        public Admin Admin
-        {
-            get { return admin; }
-            set { admin = value; }
-        }
-
         private bool confirmed;
         private Union union;
         private Activity activity;
 
-        public HallBooking()
-        {
-        }
-
-        public HallBooking(Activity activity, Union union, DateTime hallBookingTime, DateTime hallBookingEndTime, Admin admin, bool confirmed)
-        {
-            Activity = activity;
-            Union = union;
-            HallBookingTime = hallBookingTime;
-            HallBookingEndTime = hallBookingEndTime;
-            Confirmed = confirmed;
-            Admin = admin;
-        }
-
-        public HallBooking(Activity activity, Union union, DateTime hallBookingTime, DateTime hallBookingEndTime, Admin admin, bool confirmed, int hallBookingID)
-        {
-            Activity = activity;
-            Union = union;
-            HallBookingTime = hallBookingTime;
-            HallBookingEndTime = hallBookingEndTime;
-            HallBookingID = hallBookingID;
-            Confirmed = confirmed;
-            Admin = admin;
-        }
 
         public Activity Activity
         {
@@ -59,11 +28,25 @@ namespace KlarupHalbooking.Entities
             get { return union; }
             set { union = value; }
         }
-
+        public Admin Admin
+        {
+            get { return admin; }
+            set { admin = value; }
+        }
         public DateTime HallBookingTime
         {
             get { return hallBookingTime; }
-            set { hallBookingTime = value; }
+            set
+            {
+                if (value < DateTime.Now)
+                {
+                    throw new ArgumentException("hall booking tid kan ikke være mindre end dags dato");
+                }
+                else
+                {
+                    hallBookingTime = value;
+                }
+            }
         }
         public DateTime HallBookingEndTime
         {
@@ -86,6 +69,9 @@ namespace KlarupHalbooking.Entities
             get { return hallBookingID; }
             set { hallBookingID = value; }
         }
-
+        public override string ToString()
+        {
+            return $"{Activity.ToString()} {Admin.ToString()} {HallBookingTime} {HallBookingEndTime} {Union.ToString()}";
+        }
     }
 }

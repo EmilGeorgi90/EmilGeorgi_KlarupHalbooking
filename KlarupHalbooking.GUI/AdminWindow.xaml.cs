@@ -20,6 +20,8 @@ namespace KlarupHalbooking.GUI
     /// </summary>
     public partial class AdminWindow : UserControl
     {
+        Client.DataClient dataClient = null;
+
         public AdminWindow()
         {
             InitializeComponent();
@@ -32,11 +34,59 @@ namespace KlarupHalbooking.GUI
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Client.DataClient dataClient = new Client.DataClient();
+            dataClient = new Client.DataClient();
             List<Entities.HallBooking> bookings = new List<Entities.HallBooking>();
             foreach (Entities.HallBooking booking in dataClient.GetData())
             {
-                bookings.Add(booking);
+                if (!booking.Confirmed)
+                {
+                    bookings.Add(booking);
+                }
+            }
+            dgBookings.ItemsSource = bookings;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgBookings.SelectedItem is Entities.HallBooking selectedBooking)
+            {
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window.GetType() == typeof(MainWindow))
+                    {
+                        dataClient.Confirm(selectedBooking, (window as MainWindow).userData);
+                        List<Entities.HallBooking> bookings = new List<Entities.HallBooking>();
+                        foreach (Entities.HallBooking booking in dataClient.GetData())
+                        {
+                            if (!booking.Confirmed)
+                            {
+                                bookings.Add(booking);
+                            }
+                        }
+                        dgBookings.ItemsSource = bookings;
+                    }
+                }
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int result = dataClient.remove(dgBookings.SelectedItem as Entities.HallBooking);
+            if(result >= 1)
+            {
+                MessageBox.Show("du har nu fjernet den fra listen");
+            }
+            else
+            {
+                MessageBox.Show("noget gik galt spørg til it support");
+            }
+            List<Entities.HallBooking> bookings = new List<Entities.HallBooking>();
+            foreach (Entities.HallBooking booking in dataClient.GetData())
+            {
+                if (!booking.Confirmed)
+                {
+                    bookings.Add(booking);
+                }
             }
             dgBookings.ItemsSource = bookings;
         }

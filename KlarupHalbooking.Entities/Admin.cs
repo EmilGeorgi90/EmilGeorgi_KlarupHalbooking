@@ -8,29 +8,10 @@ namespace KlarupHalbooking.Entities
 {
     public class Admin : IBooking
     {
-        private int address;
+        private string address;
         private string fullname;
         private UserData userData;
         private int adminID;
-
-        public Admin()
-        {
-        }
-
-        public Admin(UserData userData, string fullname, int address)
-        {
-            UserData = userData;
-            Fullname = fullname;
-            Address = address;
-        }
-
-        public Admin(int adminID, UserData userData, string fullname, int address)
-        {
-            AdminID = adminID;
-            UserData = userData;
-            Fullname = fullname;
-            Address = address;
-        }
 
         public int AdminID
         {
@@ -50,10 +31,15 @@ namespace KlarupHalbooking.Entities
             set { fullname = value; }
         }
 
-        public int Address
+        public string Address
         {
             get { return address; }
             set { address = value; }
+        }
+
+        public override string ToString()
+        {
+            return Fullname;
         }
     }
 }

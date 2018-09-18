@@ -13,24 +13,6 @@ namespace KlarupHalbooking.Entities
         private string password;
         private string phonenumber;
 
-        public UserData()
-        {
-        }
-
-        public UserData(string username, string password, string phonenumber)
-        {
-            Username = username;
-            Password = password;
-            Phonenumber = phonenumber;
-        }
-
-        public UserData(int userDataID, string username, string password, string phonenumber)
-        {
-            UserDataID = userDataID;
-            Username = username;
-            Password = password;
-            Phonenumber = phonenumber;
-        }
         public int UserDataID
         {
             get { return userDataID; }
@@ -53,6 +35,11 @@ namespace KlarupHalbooking.Entities
         {
             get { return phonenumber; }
             set { phonenumber = value; }
+        }
+
+        public override string ToString()
+        {
+            return Username;
         }
     }
 }

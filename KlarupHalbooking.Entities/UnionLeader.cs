@@ -12,23 +12,6 @@ namespace KlarupHalbooking.Entities
         private string address;
         private string fullname;
 
-        public UnionLeader()
-        {
-        }
-
-        public UnionLeader(string fullname, string address)
-        {
-            Fullname = fullname;
-            Address = address;
-        }
-
-        public UnionLeader(string fullname, string address, int unionLeaderID)
-        {
-            Fullname = fullname;
-            Address = address;
-            UnionLeaderID = unionLeaderID;
-        }
-
         public string Fullname
         {
             get { return fullname; }
@@ -47,5 +30,9 @@ namespace KlarupHalbooking.Entities
             set { unionLeaderID = value; }
         }
 
+        public override string ToString()
+        {
+            return Fullname;
+        }
     }
 }

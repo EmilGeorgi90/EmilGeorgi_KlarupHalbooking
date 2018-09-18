@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <Grid Loaded="Grid_Loaded">
         <DataGrid x:Name="dgBookings" HorizontalAlignment="Left" Height="279" Margin="10,10,0,0" VerticalAlignment="Top" Width="780"/>
-        <Button Content="fjern" HorizontalAlignment="Left" Margin="40,330,0,0" VerticalAlignment="Top" Width="127" Height="60"/>
-        <Button Content="resever" HorizontalAlignment="Left" Margin="640,330,0,0" VerticalAlignment="Top" Width="127" Height="60"/>
+        <Button Content="fjern" HorizontalAlignment="Left" Margin="40,330,0,0" VerticalAlignment="Top" Width="127" Height="60" Click="Button_Click_1"/>
+        <Button Content="resever" HorizontalAlignment="Left" Margin="640,330,0,0" VerticalAlignment="Top" Width="127" Height="60" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

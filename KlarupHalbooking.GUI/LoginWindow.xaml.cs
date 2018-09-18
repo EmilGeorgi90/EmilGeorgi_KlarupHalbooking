@@ -28,7 +28,7 @@ namespace KlarupHalbooking.GUI
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             Client.DataClient client = new Client.DataClient();
-            (bool isUser, Entities.UserData user) = client.Login(new Entities.UserData(tbxUsernameInput.Text, tbxPasswordInput.Password, "00000000"));
+            (bool isUser, bool isAdmin, Entities.UserData user) = client.Login(new Entities.UserData { Username = tbxUsernameInput.Text, Password = tbxPasswordInput.Password, Phonenumber = "00000000" });
             if (isUser)
             {
                 MainWindow mainWindow = new MainWindow();
@@ -38,10 +38,16 @@ namespace KlarupHalbooking.GUI
                     {
                         (window as MainWindow).userData = user;
                         (window as MainWindow).isLoggedIn = true;
+                        (window as MainWindow).isAdmin = isAdmin;
+
                     }
                 }
                 mainWindow.Show();
                 Application.Current.MainWindow.Close();
+            }
+            else
+            {
+                MessageBox.Show("det er ikke en gyldig bruger");
             }
         }
     }

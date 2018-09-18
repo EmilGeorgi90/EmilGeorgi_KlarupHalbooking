@@ -13,38 +13,6 @@ namespace KlarupHalbooking.Entities
         private UserData userData;
         private UnionLeader unionLeader;
 
-        public Union()
-        {
-        }
-
-        public Union(UserData userData, string unionName)
-        {
-            UserData = userData;
-            UnionName = unionName;
-        }
-
-        public Union(UserData userData, string unionName, int unionID)
-        {
-            UserData = userData;
-            UnionName = unionName;
-            UnionID = unionID;
-        }
-
-        public Union(UnionLeader unionLeader, UserData userData, string unionName)
-        {
-            UnionLeader = unionLeader;
-            UserData = userData;
-            UnionName = unionName;
-        }
-
-        public Union(UnionLeader unionLeader, UserData userData, string unionName, int unionID)
-        {
-            UnionLeader = unionLeader;
-            UserData = userData;
-            UnionName = unionName;
-            UnionID = unionID;
-        }
-
         public UnionLeader UnionLeader
         {
             get { return unionLeader; }
@@ -67,6 +35,11 @@ namespace KlarupHalbooking.Entities
         {
             get { return unionID; }
             set { unionID = value; }
+        }
+
+        public override string ToString()
+        {
+            return UnionName;
         }
     }
 }

@@ -53,21 +53,9 @@
     <Compile Include="HallBookingContext.cs" />
     <Compile Include="HallBooking.cs" />
     <Compile Include="IBooking.cs" />
-    <Compile Include="Migrations\201809171148183_HallBooking.cs" />
-    <Compile Include="Migrations\201809171148183_HallBooking.Designer.cs">
-      <DependentUpon>201809171148183_HallBooking.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809180818422_HallBooking1.cs" />
-    <Compile Include="Migrations\201809180818422_HallBooking1.Designer.cs">
-      <DependentUpon>201809180818422_HallBooking1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809180940534_HallBooking2.cs" />
-    <Compile Include="Migrations\201809180940534_HallBooking2.Designer.cs">
-      <DependentUpon>201809180940534_HallBooking2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809181008517_HallBooking3.cs" />
-    <Compile Include="Migrations\201809181008517_HallBooking3.Designer.cs">
-      <DependentUpon>201809181008517_HallBooking3.cs</DependentUpon>
+    <Compile Include="Migrations\201809181154113_HallBookingContext.cs" />
+    <Compile Include="Migrations\201809181154113_HallBookingContext.Designer.cs">
+      <DependentUpon>201809181154113_HallBookingContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Union.cs" />
@@ -80,17 +68,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809171148183_HallBooking.resx">
-      <DependentUpon>201809171148183_HallBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809180818422_HallBooking1.resx">
-      <DependentUpon>201809180818422_HallBooking1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809180940534_HallBooking2.resx">
-      <DependentUpon>201809180940534_HallBooking2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809181008517_HallBooking3.resx">
-      <DependentUpon>201809181008517_HallBooking3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809181154113_HallBookingContext.resx">
+      <DependentUpon>201809181154113_HallBookingContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

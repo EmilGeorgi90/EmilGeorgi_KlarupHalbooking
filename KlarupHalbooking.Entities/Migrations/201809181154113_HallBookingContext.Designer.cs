@@ -7,13 +7,13 @@ namespace KlarupHalbooking.Entities.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class HallBooking3 : IMigrationMetadata
+    public sealed partial class HallBookingContext : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(HallBooking3));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(HallBookingContext));
         
         string IMigrationMetadata.Id
         {
-            get { return "201809181008517_HallBooking3"; }
+            get { return "201809181154113_HallBookingContext"; }
         }
         
         string IMigrationMetadata.Source

@@ -52,5 +52,9 @@ namespace KlarupHalbooking.Entities
             }
         }
 
+        public override string ToString()
+        {
+            return ActivityName;
+        }
     }
 }
