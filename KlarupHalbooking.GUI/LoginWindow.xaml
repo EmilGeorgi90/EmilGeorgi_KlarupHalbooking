@@ -9,7 +9,7 @@
         <Label x:Name="lblUsername" Height="40" Width="200" FontSize="24" Content="Username" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Padding="0" Margin="10,10"/>
         <TextBox x:Name="tbxUsernameInput" Height="40" Width="200" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="230,10" Padding="0"/>
         <Label x:Name="lblPassword" Height="40" Width="200" FontSize="24" Content="Password" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Padding="0" Margin="10, 70"/>
-        <TextBox x:Name="tbxPasswordInput" Height="40" Width="200" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="230, 70" Padding="0"/>
-        <Button x:Name="btnLogin" Content="Login" FontSize="24" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="230, 130" Padding="0"/>
+        <PasswordBox x:Name="tbxPasswordInput" Height="40" Width="200" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="230, 70" Padding="0"/>
+        <Button x:Name="btnLogin" Content="Login" FontSize="24" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="230, 130" Padding="0" Click="btnLogin_Click"/>
     </Grid>
 </UserControl>

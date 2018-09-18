@@ -10,16 +10,21 @@ namespace KlarupHalbooking.Entities
     {
         private int activityID;
         private string activityName;
+        private double spaceNeeded;
 
-        public Activity(string activityName)
+
+
+        public Activity(string activityName, double spaceNeeded)
         {
             ActivityName = activityName;
+            SpaceNeeded = spaceNeeded;
         }
 
-        public Activity(int activityID, string activityName)
+        public Activity(int activityID, string activityName, double spaceNeeded)
         {
             ActivityID = activityID;
             ActivityName = activityName;
+            SpaceNeeded = spaceNeeded;
         }
 
         public int ActivityID
@@ -31,6 +36,18 @@ namespace KlarupHalbooking.Entities
         {
             get { return activityName; }
             set { activityName = value; }
+        }
+        public double SpaceNeeded
+        {
+            get { return spaceNeeded; }
+            set
+            {
+                if(value > 1)
+                {
+                    throw new ArgumentException("kan ikke være større end 1");
+                }
+                spaceNeeded = value;
+            }
         }
 
     }

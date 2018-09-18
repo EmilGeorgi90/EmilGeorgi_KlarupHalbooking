@@ -13,6 +13,7 @@ namespace KlarupHalbooking.Entities
         public DbSet<Admin> Admins { get; set; }
         public DbSet<UnionLeader> UnionLeaders { get; set; }
         public DbSet<Union> Unions { get; set; }
+        public DbSet<Activity> Activities { get; set; }
         public DbSet<HallBooking> HallBookings { get; set; }
     }
 }

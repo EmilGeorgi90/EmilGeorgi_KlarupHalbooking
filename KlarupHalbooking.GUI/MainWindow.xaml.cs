@@ -21,19 +21,28 @@ namespace KlarupHalbooking.GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool isLoggedIn = false;
+        internal bool isLoggedIn = false;
+        internal Entities.UserData userData = null;
         public MainWindow()
         {
             InitializeComponent();
-            if (!isLoggedIn)
-            {
-                Content = new BookingWindow();
-            }
+        }
+        public MainWindow(Entities.UserData userData)
+        {
+            this.userData = userData;
+            InitializeComponent();
         }
 
         private void ContentControl_Loaded(object sender, RoutedEventArgs e)
         {
-
+            if (!isLoggedIn)
+            {
+                Content = new LoginWindow();
+            }
+            else
+            {
+                Content = new BookingWindow();
+            }
         }
     }
 }

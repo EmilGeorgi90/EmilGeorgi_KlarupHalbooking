@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:KlarupHalbooking.GUI"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Label Height="40" Width="200" Content="Dato for booking" VerticalAlignment="top" HorizontalAlignment="Left" Margin="10,10"></Label>
-        <DatePicker Name="dpDateTime" Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="220,10"></DatePicker>
-        <Label Height="40" Width="200" Content="Tidspunkt for booking" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 70"></Label>
-        <ContentControl Name="TimePicker"></ContentControl>
+        <xctk:DateTimePicker x:Name="dtpBookingDate" Format="Custom" FormatString="dd'/'MM-yyyy HH:mm " Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="230,10"/>
+        <Label Height="40" Width="200" Content="aktivite for booking" VerticalAlignment="top" HorizontalAlignment="Left" Margin="10,70"></Label>
+        <TextBox x:Name="tbxActivity" Height="40" Width="200" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="230, 70"></TextBox>
+        <Button Height="40" Width="200" Content="tilføj booking" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="230,130" Click="Button_Click"/>
     </Grid>
 </UserControl>

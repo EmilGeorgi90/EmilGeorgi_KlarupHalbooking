@@ -24,5 +24,19 @@ namespace KlarupHalbooking.GUI
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Client.DataClient<Entities.UserData> client = new Client.DataClient<Entities.UserData>();
+            if (client.Login(new Entities.UserData(tbxUsernameInput.Text, tbxPasswordInput.Password, "00000000")))
+            {
+                MainWindow mainWindow = new MainWindow(new Entities.UserData(tbxUsernameInput.Text, tbxPasswordInput.Password, "00000000"))
+                {
+                    isLoggedIn = true
+                };
+                mainWindow.Show();
+                Application.Current.MainWindow.Close();
+            }
+        }
     }
 }

@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201809171148183_HallBooking.Designer.cs">
       <DependentUpon>201809171148183_HallBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809180818422_HallBooking1.cs" />
+    <Compile Include="Migrations\201809180818422_HallBooking1.Designer.cs">
+      <DependentUpon>201809180818422_HallBooking1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Union.cs" />
     <Compile Include="UnionLeader.cs" />
@@ -70,6 +74,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809171148183_HallBooking.resx">
       <DependentUpon>201809171148183_HallBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809180818422_HallBooking1.resx">
+      <DependentUpon>201809180818422_HallBooking1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

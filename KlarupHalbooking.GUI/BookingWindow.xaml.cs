@@ -23,7 +23,12 @@ namespace KlarupHalbooking.GUI
         public BookingWindow()
         {
             InitializeComponent();
-            TimePicker.Content = new TimePickerExtention();
+            userData.
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Client.DataClient<Entities.HallBooking> dataClient = new Client.DataClient<Entities.HallBooking>();
+            dataClient.AddData(dtpBookingDate.Value ?? DateTime.Now, tbxActivity.Text, );
         }
     }
 }
