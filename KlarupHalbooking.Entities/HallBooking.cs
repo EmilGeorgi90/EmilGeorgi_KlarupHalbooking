@@ -38,7 +38,7 @@ namespace KlarupHalbooking.Entities
             get { return hallBookingTime; }
             set
             {
-                if (value < DateTime.Now)
+                if (value.Hour < 8)
                 {
                     throw new ArgumentException("hall booking tid kan ikke være mindre end dags dato");
                 }
@@ -53,7 +53,7 @@ namespace KlarupHalbooking.Entities
             get { return hallBookingEndTime; }
             set
             {
-                if (value < HallBookingTime)
+                if (value < HallBookingTime && value.Hour > 22)
                     throw new ArgumentException("slut tid kan ikke være mindre end start tid");
                 else
                     hallBookingEndTime = value;

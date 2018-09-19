@@ -31,9 +31,16 @@ namespace KlarupHalbooking.GUI
             {
                 if (window.GetType() == typeof(MainWindow))
                 {
-                    if (dataClient.AddData(dtpBookingDate.Value ?? DateTime.Now, dtpBookingEndDate.Value ?? DateTime.Now, (string)cmbActivity.SelectedItem, (window as MainWindow).userData))
+                    if (dtpBookingDate.Value < DateTime.Now)
                     {
-                        MessageBox.Show("du har nu tilføjet en booking, den bliver nu kigget på af administratorerne");
+                        MessageBox.Show("du kan ikke lave en booking der er mindre end dags dato");
+                    }
+                    else
+                    {
+                        if (dataClient.AddData(dtpBookingDate.Value ?? DateTime.Now, dtpBookingEndDate.Value ?? DateTime.Now, (string)cmbActivity.SelectedItem, (window as MainWindow).userData))
+                        {
+                            MessageBox.Show("du har nu tilføjet en booking, den bliver nu kigget på af administratorerne");
+                        }
                     }
                 }
             }

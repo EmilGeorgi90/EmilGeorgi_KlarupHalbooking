@@ -57,7 +57,14 @@
     <Compile Include="Migrations\201809181154113_HallBookingContext.Designer.cs">
       <DependentUpon>201809181154113_HallBookingContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809190949193_HallBookingContext1.cs" />
+    <Compile Include="Migrations\201809190949193_HallBookingContext1.Designer.cs">
+      <DependentUpon>201809190949193_HallBookingContext1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Serializer.cs" />
+    <Compile Include="SerializerException.cs" />
+    <Compile Include="ServerCommands.cs" />
     <Compile Include="Union.cs" />
     <Compile Include="UnionLeader.cs" />
     <Compile Include="UserData.cs" />
@@ -70,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809181154113_HallBookingContext.resx">
       <DependentUpon>201809181154113_HallBookingContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809190949193_HallBookingContext1.resx">
+      <DependentUpon>201809190949193_HallBookingContext1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

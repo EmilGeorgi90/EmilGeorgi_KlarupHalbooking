@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +38,7 @@ namespace KlarupHalbooking.GUI
         {
             dataClient = new Client.DataClient();
             List<Entities.HallBooking> bookings = new List<Entities.HallBooking>();
-            foreach (Entities.HallBooking booking in dataClient.GetData())
+            foreach (Entities.HallBooking booking in dataClient.GetData().Where(h => h.Confirmed == false))
             {
                 if (!booking.Confirmed)
                 {
@@ -44,7 +46,14 @@ namespace KlarupHalbooking.GUI
                 }
             }
             dgBookings.ItemsSource = bookings;
+            PointLabel = chartPoint =>
+    string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+            ChartPiePerscentNotFree.Series.Where(c => c.Title == "belagt").FirstOrDefault().Values = new ChartValues<double>(new double[] { dataClient.CalculateCoveragePercentageByDay(DateTime.Now) });
+            ChartPiePerscentNotFree.Series.Where(c => c.Title == "Ikke belagt").FirstOrDefault().Values = new ChartValues<double>(new double[] { dataClient.CalculateNonBookedMinutesByDay(DateTime.Now) });
+
+            DataContext = this;
         }
+        public Func<ChartPoint, string> PointLabel { get; set; }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -72,7 +81,7 @@ namespace KlarupHalbooking.GUI
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             int result = dataClient.Remove(dgBookings.SelectedItem as Entities.HallBooking);
-            if(result >= 1)
+            if (result >= 1)
             {
                 MessageBox.Show("du har nu fjernet den fra listen");
             }
@@ -89,6 +98,18 @@ namespace KlarupHalbooking.GUI
                 }
             }
             dgBookings.ItemsSource = bookings;
+        }
+
+        private void Chart_OnDataClick(object sender, ChartPoint chartPoint)
+        {
+            var chart = (LiveCharts.Wpf.PieChart)chartPoint.ChartView;
+
+            //clear selected slice.
+            foreach (PieSeries series in chart.Series)
+                series.PushOut = 0;
+
+            var selectedSeries = (PieSeries)chartPoint.SeriesView;
+            selectedSeries.PushOut = 8;
         }
     }
 }

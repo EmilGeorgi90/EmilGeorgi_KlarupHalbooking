@@ -36,6 +36,13 @@ namespace KlarupHalbooking.Entities
             get { return unionID; }
             set { unionID = value; }
         }
+        private DateTime reservations;
+
+        public DateTime Reservations
+        {
+            get { return reservations; }
+            set { reservations = value; }
+        }
 
         public override string ToString()
         {
