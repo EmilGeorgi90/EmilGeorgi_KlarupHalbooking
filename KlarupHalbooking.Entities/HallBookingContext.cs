@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KlarupHalbooking.Entities
+namespace KlarupHalBooking.Entities
 {
     public class HallBookingContext : DbContext
     {

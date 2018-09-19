@@ -10,6 +10,9 @@ namespace KlarupHalBooking.Server
     {
         static void Main(string[] args)
         {
+            TCPServer tCPServer = new TCPServer(65432);
+            tCPServer.Run();
+            Console.ReadLine();
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace KlarupHalbooking.Entities.Migrations
+namespace KlarupHalBooking.Entities.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

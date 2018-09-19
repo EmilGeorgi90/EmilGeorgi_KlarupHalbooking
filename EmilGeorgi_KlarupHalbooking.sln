@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlarupHalBooking.Client", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlarupHalBooking.Server", "KlarupHalBooking.Server\KlarupHalBooking.Server.csproj", "{4D318191-8697-42DA-A56A-C4B81A6FFE0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlarupHalBooking.tests", "KlarupHalBooking.tests\KlarupHalBooking.tests.csproj", "{1CB0BD28-7FEB-4C04-9566-86C7E886D195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerService", "ServerService\ServerService.csproj", "{CE9EA84A-79B6-4888-A7BE-035A97CCD1EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{4D318191-8697-42DA-A56A-C4B81A6FFE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D318191-8697-42DA-A56A-C4B81A6FFE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D318191-8697-42DA-A56A-C4B81A6FFE0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB0BD28-7FEB-4C04-9566-86C7E886D195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB0BD28-7FEB-4C04-9566-86C7E886D195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB0BD28-7FEB-4C04-9566-86C7E886D195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB0BD28-7FEB-4C04-9566-86C7E886D195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE9EA84A-79B6-4888-A7BE-035A97CCD1EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9EA84A-79B6-4888-A7BE-035A97CCD1EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9EA84A-79B6-4888-A7BE-035A97CCD1EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9EA84A-79B6-4888-A7BE-035A97CCD1EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

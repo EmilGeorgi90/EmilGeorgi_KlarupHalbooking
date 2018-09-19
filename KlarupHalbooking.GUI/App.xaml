@@ -1,7 +1,7 @@
-﻿<Application x:Class="KlarupHalbooking.GUI.App"
+﻿<Application x:Class="KlarupHalBooking.GUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:KlarupHalbooking.GUI"
+             xmlns:local="clr-namespace:KlarupHalBooking.GUI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

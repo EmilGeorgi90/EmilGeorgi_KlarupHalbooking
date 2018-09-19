@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KlarupHalbooking.GUI.Properties
+namespace KlarupHalBooking.GUI.Properties
 {
 
 

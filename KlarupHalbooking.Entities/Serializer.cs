@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KlarupHalbooking.Entities
+namespace KlarupHalBooking.Entities
 {
     public static class Serializer<T>
     {

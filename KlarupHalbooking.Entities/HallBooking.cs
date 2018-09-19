@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KlarupHalbooking.Entities
+namespace KlarupHalBooking.Entities
 {
     public class HallBooking : IBooking
     {
@@ -53,7 +53,7 @@ namespace KlarupHalbooking.Entities
             get { return hallBookingEndTime; }
             set
             {
-                if (value < HallBookingTime && value.Hour > 22)
+                if (value < HallBookingTime || value.Hour > 22)
                     throw new ArgumentException("slut tid kan ikke være mindre end start tid");
                 else
                     hallBookingEndTime = value;

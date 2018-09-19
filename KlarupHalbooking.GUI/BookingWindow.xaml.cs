@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KlarupHalbooking.GUI
+namespace KlarupHalBooking.GUI
 {
     /// <summary>
     /// Interaction logic for BookingWindow.xaml
@@ -27,22 +27,31 @@ namespace KlarupHalbooking.GUI
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Window window in Application.Current.Windows)
+            try
             {
-                if (window.GetType() == typeof(MainWindow))
+
+                foreach (Window window in Application.Current.Windows)
                 {
-                    if (dtpBookingDate.Value < DateTime.Now)
+                    if (window.GetType() == typeof(MainWindow))
                     {
-                        MessageBox.Show("du kan ikke lave en booking der er mindre end dags dato");
-                    }
-                    else
-                    {
-                        if (dataClient.AddData(dtpBookingDate.Value ?? DateTime.Now, dtpBookingEndDate.Value ?? DateTime.Now, (string)cmbActivity.SelectedItem, (window as MainWindow).userData))
+                        if (dtpBookingDate.Value < DateTime.Now)
                         {
-                            MessageBox.Show("du har nu tilføjet en booking, den bliver nu kigget på af administratorerne");
+                            MessageBox.Show("du kan ikke lave en booking der er mindre end dags dato");
+                        }
+                        else
+                        {
+                            if (dataClient.AddData(dtpBookingDate.Value ?? DateTime.Now, dtpBookingEndDate.Value ?? DateTime.Now, (string)cmbActivity.SelectedItem, (window as MainWindow).userData))
+                            {
+                                MessageBox.Show("du har nu tilføjet en booking, den bliver nu kigget på af administratorerne");
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " contact your supporter");
+                Application.Current.Shutdown();
             }
         }
 
@@ -65,7 +74,7 @@ namespace KlarupHalbooking.GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "contact your supporter");
+                MessageBox.Show(ex.Message + " contact your supporter");
                 Application.Current.Shutdown();
             }
         }

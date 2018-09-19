@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KlarupHalbooking.Entities
+namespace KlarupHalBooking.Entities
 {
     [Serializable]
     public enum ServerCommands

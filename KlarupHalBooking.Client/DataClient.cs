@@ -1,4 +1,4 @@
-﻿using KlarupHalbooking.Entities;
+﻿using KlarupHalBooking.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace KlarupHalbooking.Client
+namespace KlarupHalBooking.Client
 {
     public class DataClient
     {

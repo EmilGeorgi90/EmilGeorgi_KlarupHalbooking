@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KlarupHalbooking.GUI
+namespace KlarupHalBooking.GUI
 {
     /// <summary>
     /// Interaction logic for AdminWindow.xaml
@@ -46,11 +46,11 @@ namespace KlarupHalbooking.GUI
                 }
             }
             dgBookings.ItemsSource = bookings;
-            PointLabel = chartPoint =>
-    string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
-            ChartPiePerscentNotFree.Series.Where(c => c.Title == "belagt").FirstOrDefault().Values = new ChartValues<double>(new double[] { dataClient.CalculateCoveragePercentageByDay(DateTime.Now) });
-            ChartPiePerscentNotFree.Series.Where(c => c.Title == "Ikke belagt").FirstOrDefault().Values = new ChartValues<double>(new double[] { dataClient.CalculateNonBookedMinutesByDay(DateTime.Now) });
 
+            ChartPiePerscentNotFree.Series.Where(c => c.Title == "belagt").FirstOrDefault().Values = new ChartValues<double>(new double[] { double.Parse(dataClient.CalculateCoveragePercentageByDay(DateTime.Now).ToString("F")) });
+            ChartPiePerscentNotFree.Series.Where(c => c.Title == "Ikke belagt").FirstOrDefault().Values = new ChartValues<double>(new double[] { double.Parse(dataClient.CalculateNonBookedMinutesByDay(DateTime.Now).ToString("F")) });
+            PointLabel = chartPoint =>
+string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
             DataContext = this;
         }
         public Func<ChartPoint, string> PointLabel { get; set; }
